@@ -22,6 +22,7 @@ class GithubLoginWidget extends StatefulWidget {
   final List<String> githubScopes;
 
   @override
+  // ignore: library_private_types_in_public_api
   _GithubLoginState createState() => _GithubLoginState();
 }
 
