@@ -26,21 +26,19 @@ class _RepositoriesListState extends State<RepositoriesList> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return FutureBuilder<List<Repository>>(
       future: _repositories,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Center(child: Text('${snapshot.error}'));
         }
-
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         }
-
         var repositories = snapshot.data;
         return ListView.builder(
           itemBuilder: (context, index) {
-            var repository = repositories![index];
+            var repository = repositories[index];
             return ListTile(
               title:
                   Text('${repository.owner?.login ?? ''}/${repository.name}'),
@@ -48,6 +46,7 @@ class _RepositoriesListState extends State<RepositoriesList> {
               onTap: () => _urlLauncher.launch(context, repository.htmlUrl),
             );
           },
+          itemCount: repositories!.length,
         );
       },
     );
