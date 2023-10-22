@@ -32,9 +32,11 @@ class _IssuesListState extends State<IssuesList> {
         if (snapshot.hasError) {
           return Center(child: Text('${snapshot.error}'));
         }
+
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         }
+
         var assignedIssues = snapshot.data;
         return ListView.builder(
           itemBuilder: (context, index) {
