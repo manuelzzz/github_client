@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttericon/octicons_icons.dart';
 import 'package:github/github.dart';
+import 'package:github_client/app/ui/widgets/issues_list.dart';
+import 'package:github_client/app/ui/widgets/pull_requests_list.dart';
 import 'package:github_client/app/ui/widgets/repositories_list.dart';
 
 class GithubSummary extends StatefulWidget {
@@ -48,6 +50,8 @@ class _GithubSummaryState extends State<GithubSummary> {
             index: _selectedIndex,
             children: [
               RepositoriesList(github: widget.github),
+              IssuesList(github: widget.github),
+              PullRequestsList(github: widget.github),
             ],
           ),
         ),
