@@ -40,6 +40,7 @@ dependencies:
   http: ^1.1.0
   window_to_front: ^0.0.3
   github: ^9.19.0
+  fluttericon: ^2.0.0
 
 dev_dependencies:
   flutter_test:
